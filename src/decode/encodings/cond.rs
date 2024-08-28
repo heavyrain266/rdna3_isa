@@ -39,14 +39,14 @@ pub struct ConditionExpression {
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct EncodingCondition {
 	#[serde(rename = "ConditionName")]
-	name: String,
+	pub name: String,
 
 	#[serde(rename = "CondtionExpression")]
-	expression: ConditionExpression,
+	pub expression: ConditionExpression,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct EncodingConditions {
 	#[serde(rename = "EncodingCondition")]
-	condition: Vec<EncodingCondition>,
+	pub condition: Vec<EncodingCondition>,
 }

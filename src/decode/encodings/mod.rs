@@ -1,6 +1,6 @@
-mod cond;
-mod ident;
-mod microcode;
+pub mod cond;
+pub mod ident;
+pub mod microcode;
 
 use serde::Deserialize;
 
@@ -8,27 +8,27 @@ use serde::Deserialize;
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct Encoding {
 	#[serde(rename = "@Order")]
-	order: i8,
+	pub order: i8,
 
 	#[serde(rename = "EncodingName")]
-	name: String,
+	pub name: String,
 	#[serde(rename = "BitCount")]
-	bit_count: i8,
+	pub bit_count: i8,
 	#[serde(rename = "EncodingIdentifierMask")]
-	identifier_mask: ident::EncodingIdentifierMask,
+	pub identifier_mask: ident::EncodingIdentifierMask,
 	#[serde(rename = "EncodingIdentifiers")]
-	identifiers: Vec<ident::EncodingIdentifiers>,
+	pub identifiers: Vec<ident::EncodingIdentifiers>,
 	#[serde(rename = "EncodingConditions")]
-	conditions: Vec<cond::EncodingConditions>,
+	pub conditions: Vec<cond::EncodingConditions>,
 
 	#[serde(rename = "Description")]
-	description: String,
+	pub description: String,
 	#[serde(rename = "MicrocodeFormat")]
-	microcode_format: microcode::MicrocodeFormat,
+	pub microcode_format: microcode::MicrocodeFormat,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Encodings {
-	encoding: Vec<Encoding>,
+	pub encoding: Vec<Encoding>,
 }

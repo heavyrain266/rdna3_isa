@@ -1,36 +1,36 @@
-mod encodings;
+pub mod encodings;
 
 use serde::Deserialize;
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct Spec {
 	#[serde(rename = "Document")]
-	document: Document,
+	pub document: Document,
 	#[serde(rename = "ISA")]
-	isa: ISA,
+	pub isa: ISA,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct Document {
-	copyright: String,
-	sensitivity: String,
+	pub copyright: String,
+	pub sensitivity: String,
 	// FIXME: figure out how to make it parse date... (returns None)
-	// release_data: Option<time::Date>,
-	schema_version: String,
+	// pub release_data: Option<time::Date>,
+	pub schema_version: String,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct ISA {
-	architecture: Architecture,
-	encodings: encodings::Encodings,
+	pub architecture: Architecture,
+	pub encodings: encodings::Encodings,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct Architecture {
 	#[serde(rename = "ArchitectureName")]
-	name: String,
+	pub name: String,
 	#[serde(rename = "ArchitectureId")]
-	id: String,
+	pub id: String,
 }
