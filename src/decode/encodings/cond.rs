@@ -42,7 +42,7 @@ pub struct EncodingCondition {
 	name: String,
 
 	#[serde(rename = "CondtionExpression")]
-	expression: ConditionExpression
+	expression: ConditionExpression,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]

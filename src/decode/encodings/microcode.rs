@@ -8,7 +8,7 @@ pub struct Range {
 	#[serde(rename = "BitCount")]
 	bit_count: i8,
 	#[serde(rename = "BitOffset")]
-	bit_offset: i8
+	bit_offset: i8,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]

@@ -2,7 +2,6 @@ mod encodings;
 
 use serde::Deserialize;
 
-
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct Spec {
 	#[serde(rename = "Document")]
