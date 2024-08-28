@@ -1,0 +1,7 @@
+[package]
+name = "rdna3_isa"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+quick-xml = "0.36.1"
