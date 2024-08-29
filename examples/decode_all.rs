@@ -3,7 +3,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 		format!("{}/spec/amdgpu_isa_rdna3.xml", env!("CARGO_MANIFEST_DIR")
 	))?;
 
-	let spec: rdna3_isa::decode::Spec = quick_xml::de::from_str(path.as_str())?;
+	let spec: rdna3_isa::Spec = quick_xml::de::from_str(path.as_str())?;
 
 	println!("{:#?}", spec);
 
