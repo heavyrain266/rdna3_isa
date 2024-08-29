@@ -3,7 +3,8 @@ use serde::Deserialize;
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct SubExpressions {
-	expression: Option<Vec<Expression>>,
+	#[serde(rename = "Expression")]
+	expression: Vec<Expression>,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
@@ -26,7 +27,7 @@ pub struct Expression {
 	operator: Option<String>,
 	subexpressions: Option<SubExpressions>,
 	label: Option<String>,
-	value: Option<i8>,
+	value: Option<i32>,
 	value_type: Option<ValueType>,
 }
 
