@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# time = { version = "0.3.36", features = ["serde", "serde-human-readable"] }
+time = { version = "0.3.36", features = ["serde", "serde-human-readable"] }
 
 [dependencies.serde]
 version = "1.0.209"

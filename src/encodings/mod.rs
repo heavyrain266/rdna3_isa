@@ -5,8 +5,8 @@ pub mod microcode;
 use serde::Deserialize;
 
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct Encoding {
 	#[serde(rename = "@Order")]
 	pub order: i8,
@@ -22,8 +22,8 @@ pub struct Encoding {
 	pub microcode_format: microcode::MicrocodeFormat,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct Encodings {
 	pub encoding: Vec<Encoding>,
 }

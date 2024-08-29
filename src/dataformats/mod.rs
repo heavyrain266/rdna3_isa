@@ -1,6 +1,7 @@
 use serde::Deserialize;
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Range {
 	#[serde(rename = "@Order")]
@@ -10,7 +11,7 @@ pub struct Range {
 	bit_offset: i8,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct BitLayout {
 	#[serde(rename = "@RangeCount")]
@@ -18,7 +19,7 @@ pub struct BitLayout {
 	range: Range,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Field {
 	#[serde(rename = "@Signedness")]
@@ -28,7 +29,7 @@ pub struct Field {
 	bit_layout: BitLayout,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct BitMap {
 	#[serde(rename = "@Order")]
@@ -37,7 +38,7 @@ pub struct BitMap {
 	field: Option<Field>,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct DataFormat {
 	pub data_format_name: String,
@@ -48,7 +49,7 @@ pub struct DataFormat {
 	pub data_attributes: BitMap,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct DataFormats {
 	pub data_format: Vec<DataFormat>

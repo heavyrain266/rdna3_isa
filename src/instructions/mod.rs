@@ -3,8 +3,8 @@ mod encodings;
 use serde::Deserialize;
 
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct InstructionFlags {
 	pub is_branch: bool,
 	pub is_conditional_branch: bool,
@@ -13,8 +13,8 @@ pub struct InstructionFlags {
 	pub is_immediately_executed: bool,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct Instruction {
 	pub instruction_name: String,
 	pub description: String,
@@ -23,8 +23,8 @@ pub struct Instruction {
 	pub functional_group: crate::FunctionalGroup,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct Instructions {
 	pub instruction: Vec<Instruction>,
 }

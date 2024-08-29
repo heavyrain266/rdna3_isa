@@ -1,7 +1,7 @@
 use serde::Deserialize;
 
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 pub struct EncodingIdentifier {
 	#[serde(rename = "@Radix")]
 	pub radix: i8,
@@ -9,7 +9,7 @@ pub struct EncodingIdentifier {
 	pub text: String,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 pub struct EncodingIdentifierMask {
 	#[serde(rename = "@Radix")]
 	pub radix: i8,
@@ -17,8 +17,8 @@ pub struct EncodingIdentifierMask {
 	pub text: String,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct EncodingIdentifiers {
 	pub encoding_identifier: Vec<EncodingIdentifier>,
 }

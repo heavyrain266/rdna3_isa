@@ -1,7 +1,7 @@
 use serde::Deserialize;
 
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Operand {
 	#[serde(rename = "@Input")]
@@ -21,7 +21,7 @@ pub struct Operand {
 	pub operand_size: i16,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Operands {
 	pub operand: Option<Vec<Operand>>,
@@ -35,8 +35,8 @@ pub struct Opcode {
 	pub btext: i16,
 }
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct InstructionEncoding {
 	pub encoding_name: String,
 	pub encoding_condition: String,
@@ -45,8 +45,8 @@ pub struct InstructionEncoding {
 }
 
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(default, rename_all = "PascalCase")]
+#[derive(Debug, PartialEq, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct InstructionEncodings {
 	pub instruction_encoding: Vec<InstructionEncoding>,
 }
