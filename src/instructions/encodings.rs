@@ -5,48 +5,48 @@ use serde::Deserialize;
 #[serde(rename_all = "PascalCase")]
 pub struct Operand {
 	#[serde(rename = "@Input")]
-	input: bool,
+	pub input: bool,
 	#[serde(rename = "@Output")]
-	output: bool,
+	pub output: bool,
 	#[serde(rename = "@IsImplicit")]
-	is_implicit: bool,
+	pub is_implicit: bool,
 	#[serde(rename = "@IsBinaryMicrocodeRequired")]
-	is_binary_microcode_required: bool,
+	pub is_binary_microcode_required: bool,
 	#[serde(rename = "@Order")]
-	order: i8,
+	pub order: i8,
 
-	field_name: Option<String>,
-	data_format_name: String,
-	operand_type: String,
-	operand_size: i16,
+	pub field_name: Option<String>,
+	pub data_format_name: String,
+	pub operand_type: String,
+	pub operand_size: i16,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Operands {
-	operand: Option<Vec<Operand>>,
+	pub operand: Option<Vec<Operand>>,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 pub struct Opcode {
 	#[serde(rename = "@Radix")]
-	radix: i8,
+	pub bradix: i8,
 	#[serde(rename = "$text")]
-	text: i16,
+	pub btext: i16,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct InstructionEncoding {
-	encoding_name: String,
-	encoding_condition: String,
-	opcode: Opcode,
-	operands: Operands,
+	pub encoding_name: String,
+	pub encoding_condition: String,
+	pub opcode: Opcode,
+	pub operands: Operands,
 }
 
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
 pub struct InstructionEncodings {
-	instruction_encoding: Vec<InstructionEncoding>,
+	pub instruction_encoding: Vec<InstructionEncoding>,
 }

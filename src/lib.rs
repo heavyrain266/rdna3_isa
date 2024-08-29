@@ -1,3 +1,4 @@
+pub mod dataformats;
 pub mod encodings;
 pub mod instructions;
 
@@ -24,10 +25,26 @@ pub struct Document {
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
+pub struct FunctionalGroups {
+	pub functional_group: Vec<FunctionalGroup>,
+}
+
+#[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
+pub struct FunctionalGroup {
+	pub name: String,
+	pub subgroup: Option<String>,
+	pub description: Option<String>,
+}
+
+#[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct ISA {
 	pub architecture: Architecture,
 	pub encodings: encodings::Encodings,
 	pub instructions: instructions::Instructions,
+	// pub data_formats: dataformats::DataFormats,
+	pub functional_groups: FunctionalGroups,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
