@@ -28,9 +28,8 @@ pub struct ISA {
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct Architecture {
-	#[serde(rename = "ArchitectureName")]
-	pub name: String,
-	#[serde(rename = "ArchitectureId")]
-	pub id: String,
+	pub architecture_name: String,
+	pub architecture_id: String,
 }

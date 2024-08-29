@@ -6,29 +6,24 @@ use serde::Deserialize;
 
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct Encoding {
 	#[serde(rename = "@Order")]
 	pub order: i8,
 
-	#[serde(rename = "EncodingName")]
-	pub name: String,
-	#[serde(rename = "BitCount")]
-	pub bit_count: i8,
-	#[serde(rename = "EncodingIdentifierMask")]
-	pub identifier_mask: ident::EncodingIdentifierMask,
-	#[serde(rename = "EncodingIdentifiers")]
-	pub identifiers: Vec<ident::EncodingIdentifiers>,
-	#[serde(rename = "EncodingConditions")]
-	pub conditions: Vec<cond::EncodingConditions>,
 
-	#[serde(rename = "Description")]
+	pub encoding_name: String,
+	pub bit_count: i8,
+	pub encoding_identifier_mask: ident::EncodingIdentifierMask,
+	pub encoding_identifiers: Vec<ident::EncodingIdentifiers>,
+	pub encoding_conditions: Vec<cond::EncodingConditions>,
+
 	pub description: String,
-	#[serde(rename = "MicrocodeFormat")]
 	pub microcode_format: microcode::MicrocodeFormat,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(rename_all = "PascalCase")]
+#[serde(default, rename_all = "PascalCase")]
 pub struct Encodings {
 	pub encoding: Vec<Encoding>,
 }

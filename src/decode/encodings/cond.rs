@@ -2,24 +2,23 @@ use serde::Deserialize;
 
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct SubExpressions {
-	#[serde(rename = "Expression")]
 	expression: Vec<Expression>,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct ValueType {
 	#[serde(rename = "@Name")]
 	name: String,
 
-	#[serde(rename = "BaseType")]
 	base_type: char,
-	#[serde(rename = "Size")]
 	size: i8,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(rename_all = "PascalCase")]
+#[serde(default, rename_all = "PascalCase")]
 pub struct Expression {
 	#[serde(rename = "@Type")]
 	ty: Option<String>,
@@ -32,22 +31,20 @@ pub struct Expression {
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
-#[serde(rename_all = "PascalCase")]
+#[serde(default, rename_all = "PascalCase")]
 pub struct ConditionExpression {
 	expression: Expression,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct EncodingCondition {
-	#[serde(rename = "ConditionName")]
-	pub name: String,
-
-	#[serde(rename = "CondtionExpression")]
-	pub expression: ConditionExpression,
+	pub condition_name: String,
+	pub condtion_expression: ConditionExpression,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct EncodingConditions {
-	#[serde(rename = "EncodingCondition")]
-	pub condition: Vec<EncodingCondition>,
+	pub encoding_condition: Vec<EncodingCondition>,
 }

@@ -17,7 +17,7 @@ pub struct EncodingIdentifierMask {
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
+#[serde(default, rename_all = "PascalCase")]
 pub struct EncodingIdentifiers {
-    #[serde(rename = "EncodingIdentifier")]
-    pub identifier: Vec<EncodingIdentifier>,
+    pub encoding_identifier: Vec<EncodingIdentifier>,
 }
