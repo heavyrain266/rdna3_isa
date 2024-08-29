@@ -39,17 +39,17 @@ pub struct FunctionalGroup {
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
-pub struct ISA {
-	pub architecture: Architecture,
-	pub encodings: encodings::Encodings,
-	pub instructions: instructions::Instructions,
-	// pub data_formats: dataformats::DataFormats,
-	pub functional_groups: FunctionalGroups,
+pub struct Architecture {
+	pub architecture_name: String,
+	pub architecture_id: String,
 }
 
 #[derive(Debug, Default, PartialEq, Deserialize)]
 #[serde(default, rename_all = "PascalCase")]
-pub struct Architecture {
-	pub architecture_name: String,
-	pub architecture_id: String,
+pub struct ISA {
+	pub architecture: Architecture,
+	pub encodings: encodings::Encodings,
+	pub instructions: instructions::Instructions,
+	pub data_formats: dataformats::DataFormats,
+	pub functional_groups: FunctionalGroups,
 }
