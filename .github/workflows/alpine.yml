@@ -1,0 +1,28 @@
+name: 'Status Report'
+
+on:
+  push:
+    paths:
+      - 'src/**.rs'
+      - '.github/workflows/alpine.yml'
+  pull_request:
+    paths:
+      - 'src/**.rs'
+      - '.github/workflows/alpine.yml'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  status_report:
+    name: "Status Report"
+    runs-on: ubuntu-latest
+    container: rust:alpine
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: 'setup toolchain'
+        run: apk --no-cache add rustup clang compiler-rt mold musl-dev
+
+      - name: 'build status'
+        run: cargo build --verbose --release
